@@ -21,6 +21,7 @@ Implement Model-View-Controller code pattern for given cases.
 2. Exec ```make run-db``` to start docker container
 3. Exec ```make run-app``` to start the application
 4. Exec queries from ```queries.sql``` to your PostgreSQL command
+5. Import postman collection
 
 ## API Explaination
 1. ```localhost:4123/users?email={email}&limit=10&offset=0``` 
