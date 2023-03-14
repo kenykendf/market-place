@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "8c4ecc18-ab43-4d1b-b8ee-ce033fd34a6a",
+		"name": "SUPERINDO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9561200"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"seconduser@email.local\",\n    \"password\" : \"Masuk123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4123/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4123",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"seconduser\",\n    \"email\": \"seconduser@email.local\",\n    \"password\": \"Masuk123\",\n    \"age\": 33,\n    \"fullname\": \"second user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.0:4123/user",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4123",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Lists Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZW1haWwubG9jYWwiLCJpZCI6MX0.B5P_5Ai3aJz4R3S-5SQpmmwJxfzwv1vO5F-ZxTiyp8s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4123/users?email=second&limit=10&offset=0",
+							"host": [
+								"localhost"
+							],
+							"port": "4123",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "second"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4123/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4123",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"edit fullname\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4123/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4123",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZW1haWwubG9jYWwiLCJpZCI6MX0.B5P_5Ai3aJz4R3S-5SQpmmwJxfzwv1vO5F-ZxTiyp8s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4123/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4123",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "create_category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"categories_name\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4123/category",
+					"host": [
+						"localhost"
+					],
+					"port": "4123",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list_categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4123/categories?categories=kitchenware",
+					"host": [
+						"localhost"
+					],
+					"port": "4123",
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "categories",
+							"value": "kitchenware"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_code\": \"FOO002\",\n    \"item_name\": \"Breast Chicken Fillet\",\n    \"description\": \"Raw Chicken\",\n    \"quantity\": 10,\n    \"categories_id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4123/item",
+					"host": [
+						"localhost"
+					],
+					"port": "4123",
+					"path": [
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list_items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4123/items",
+					"host": [
+						"localhost"
+					],
+					"port": "4123",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail_item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4123/item/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4123",
+					"path": [
+						"item",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNlY29uZHVzZXJAZW1haWwubG9jYWwiLCJpZCI6MX0.3-OKsQqy6IC8TrjlHMvI54oPtlQVdukh0Rervy-F9HM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"carts\": [\n        {\n            \"item_id\": 1,\n            \"item_code\": \"BVG001\",\n            \"item_name\": \"coca cola\",\n            \"quantity\": 50\n        },\n        {\n            \"item_id\": 8,\n            \"item_code\": \"FOO003\",\n            \"item_name\": \"Breast Chicken Fillet\",\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4123/order",
+					"host": [
+						"localhost"
+					],
+					"port": "4123",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list_orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNlY29uZHVzZXJAZW1haWwubG9jYWwiLCJpZCI6MX0.3-OKsQqy6IC8TrjlHMvI54oPtlQVdukh0Rervy-F9HM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4123/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "4123",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

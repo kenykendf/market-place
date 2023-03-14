@@ -1,0 +1,14 @@
+version: "3"
+services:
+  superindo_pgsql:
+    container_name: superindo_pgsql
+    image: postgres:13-alpine
+    restart: on-failure
+    volumes:
+      - ./data:/var/lib/postgresql/db/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=superindo_databases
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
