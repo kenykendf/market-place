@@ -1,35 +1,26 @@
 package orders
 
 import (
-	"fmt"
 	"net/http"
 
 	"superindo/database"
 	"superindo/models"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
 
 func ListsOrders(c *gin.Context) {
 	var orders []models.Order
 
-	query := c.Query("email")
-	switch query {
-	case "":
-		err := database.DB.Preload("Carts").Find(&orders).Error
-		fmt.Println("ERR CHECK ", err)
-		if err != nil {
-			c.AbortWithError(http.StatusInternalServerError, err)
-			return
-		}
-	default:
-		err := database.DB.Preload("Carts").Where("email LIKE ?", "%"+query+"%").Find(&orders).Error
-		if err != nil {
-			c.AbortWithError(http.StatusInternalServerError, err)
-			return
-		}
-	}
+	userData := c.MustGet("userData").(jwt.MapClaims)
+	id := uint(userData["id"].(float64))
 
+	err := database.DB.Preload("Carts").Where("user_id = ?", id).Find(&orders).Error
+	if err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+		return
+	}
 	c.JSON(http.StatusOK, gin.H{
 		"message": "orders lists",
 		"result":  orders,
